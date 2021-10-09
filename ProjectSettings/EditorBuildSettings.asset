@@ -5,7 +5,37 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/MENU.unity
+    guid: 239525e431b81d94d89740ddce249db6
+  - enabled: 1
+    path: Assets/Scenes/MASALAH 1.unity
+    guid: ec45014844201c94ab907203f04fed8c
+  - enabled: 1
+    path: Assets/Scenes/MASALAH 2.unity
+    guid: 93867648080ec7843a8a32fdd23445fd
+  - enabled: 1
+    path: Assets/Scenes/MASALAH 3.unity
+    guid: 2a38a90aec99e234bab5236d09659577
+  - enabled: 1
+    path: Assets/Scenes/MASALAH 4.unity
+    guid: c66933efdbd977d43af95b9c62a7e1c2
+  - enabled: 1
+    path: Assets/Scenes/MASALAH 5.unity
+    guid: 1a8d38a3857401244833571b7b724387
+  - enabled: 1
+    path: Assets/Scenes/MASALAH 6.unity
+    guid: 7ea1cd48c405f424dac7964a3fc6f3ef
+  - enabled: 1
+    path: Assets/Scenes/MASALAH 7.unity
+    guid: 1dcbb757669f03949a8e310dac9522e3
+  - enabled: 1
+    path: Assets/Scenes/MASALAH 8.unity
+    guid: 07eab4853cfa76b4d9fb09b0a2bc55d0
+  - enabled: 1
+    path: Assets/Scenes/MASALAH 9.unity
+    guid: 6c1b92fcec57bda4ca6a45ae90366ee4
   m_configObjects: {}
