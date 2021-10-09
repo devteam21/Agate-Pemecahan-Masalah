@@ -1,9 +1,11 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class BallControl : MonoBehaviour
 {
     private Rigidbody2D rb2d;
     public ScoreController scoreController;
+    public BoxSpawner boxSpawner;
 
     private void Start()
     {
@@ -55,6 +57,22 @@ public class BallControl : MonoBehaviour
         {
             scoreController.IncreaseCurrentScore(1);
             Destroy(collision.gameObject);
+            StartCoroutine(delaySpawn());
+        }
+    }
+
+   private IEnumerator delaySpawn()
+    {
+        yield return new WaitForSeconds(3);
+        while (true)
+        {
+            float posX = Random.Range(-boxSpawner.boxTemplateWidth / 2, boxSpawner.boxTemplateWidth / 2);
+            float posY = Random.Range(-boxSpawner.boxTemplateHeight / 2, boxSpawner.boxTemplateHeight / 2);
+            if (posX != transform.position.x && posY != transform.position.y)
+            {
+                boxSpawner.SpawnBox(posX, posY);
+                break;
+            }
         }
     }
 

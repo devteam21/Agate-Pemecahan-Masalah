@@ -5,8 +5,8 @@ using UnityEngine;
 public class BoxSpawner : MonoBehaviour
 {
     public Rigidbody2D boxTemplates;
-    private float boxTemplateHeight = 7f;
-    private float boxTemplateWidth = 15f;
+    public float boxTemplateHeight = 7f;
+    public float boxTemplateWidth = 15f;
 
     private List<GameObject> spawnedBox;
 
@@ -15,7 +15,7 @@ public class BoxSpawner : MonoBehaviour
         spawnedBox = new List<GameObject>(0);
 
         //GenerateBox for Problem 6
-        int boxCount = Random.Range(10, 30);
+        int boxCount = Random.Range(10, 20);
         for (int i = 0; i <= boxCount; i++)
         {
             float posX = Random.Range(-boxTemplateWidth / 2, boxTemplateWidth / 2);
@@ -24,7 +24,7 @@ public class BoxSpawner : MonoBehaviour
         }
     }
 
-    private void SpawnBox(float posX, float posY)
+    public void SpawnBox(float posX, float posY)
     {
         GameObject newBox = Instantiate(boxTemplates.gameObject, transform);
         newBox.transform.position = new Vector2(posX, posY);
