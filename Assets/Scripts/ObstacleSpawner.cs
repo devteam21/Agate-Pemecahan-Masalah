@@ -1,38 +1,56 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class BoxSpawner : MonoBehaviour
+public class ObstacleSpawner : MonoBehaviour
 {
-    public Rigidbody2D boxTemplates;
+    public Rigidbody2D obstacleTemplate;
     public float boxTemplateHeight = 7f;
     public float boxTemplateWidth = 15f;
 
+    public BallControl ball;
+
     private List<GameObject> spawnedBox;
+
+    private float delay = 5f;
 
     private void Start()
     {
         spawnedBox = new List<GameObject>(0);
 
-        //GenerateBox for Problem 6
-        int boxCount = Random.Range(10, 20);
-        for (int i = 0; i <= boxCount; i++)
+        while (true)
         {
+            float posX = Random.Range(-boxTemplateWidth / 2, boxTemplateWidth / 2);
+            float posY = Random.Range(-boxTemplateHeight / 2, boxTemplateHeight / 2);
+            if (posX != 0 && posY != 0)
+            {
+                SpawnObstacle(posX, posY);
+                break;
+            }
+        }
+    }
+
+    private void Update()
+    {
+        delay -= Time.deltaTime;
+        if (delay <= 0f)
+        {
+            delay = 5f;
             while (true)
             {
                 float posX = Random.Range(-boxTemplateWidth / 2, boxTemplateWidth / 2);
                 float posY = Random.Range(-boxTemplateHeight / 2, boxTemplateHeight / 2);
-                if (posX != 0 && posY != 0)
+                if (posX != ball.transform.position.x && posY != ball.transform.position.y)
                 {
-                    SpawnBox(posX, posY);
+                    SpawnObstacle(posX, posY);
                     break;
                 }
             }
         }
     }
 
-    public void SpawnBox(float posX, float posY)
+    public void SpawnObstacle(float posX, float posY)
     {
-        GameObject newBox = Instantiate(boxTemplates.gameObject, transform);
+        GameObject newBox = Instantiate(obstacleTemplate.gameObject, transform);
         newBox.transform.position = new Vector2(posX, posY);
         spawnedBox.Add(newBox);
     }

@@ -6,6 +6,7 @@ public class BallControl : MonoBehaviour
     private Rigidbody2D rb2d;
     public ScoreController scoreController;
     public BoxSpawner boxSpawner;
+    public GameObject gameoverScreen;
 
     private void Start()
     {
@@ -58,6 +59,12 @@ public class BallControl : MonoBehaviour
             scoreController.IncreaseCurrentScore(1);
             Destroy(collision.gameObject);
             StartCoroutine(delaySpawn());
+        }
+        else if (collision.gameObject.tag == "Obstacle")
+        {
+            scoreController.EndScore();
+            gameoverScreen.SetActive(true);
+            enabled = false;
         }
     }
 

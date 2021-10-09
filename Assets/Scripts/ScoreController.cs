@@ -1,11 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class ScoreController : MonoBehaviour
 {
     public Text score;
+    public Text gameoverScore;
 
     private int currentScore;
 
@@ -22,5 +21,10 @@ public class ScoreController : MonoBehaviour
     public void IncreaseCurrentScore(int num)
     {
         currentScore += num;
+    }
+
+    public void EndScore()
+    {
+        gameoverScore.text = $"Score : { currentScore.ToString("0") }";
     }
 }
